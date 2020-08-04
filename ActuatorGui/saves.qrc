@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/saves">
+        <file>temp.txt</file>
+    </qresource>
+</RCC>
