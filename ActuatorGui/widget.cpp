@@ -178,23 +178,30 @@ void Widget::save()
        out << "Parameter 1: " << ui->parameter1SpinBox->value() << "\n";
        out << "Parameter 2: " << ui->parameter2SpinBox->value() << "\n\n";
 
-       out << "X Values: \n";
-       for (int var = 0; var < X.size()-1; ++var) {
-           out << X[var] << ", ";
-           if (var % 10 == 0 && var != 0)
-               out << "\n";
+       if (X.size() > 0)
+       {
+            out << "X Values: \n";
+            for (int var = 0; var < X.size()-1; ++var) {
+                   out << X[var] << ", ";
+                if (var % 10 == 0 && var != 0)
+                   out << "\n";
+                   }
 
+            out << X[X.size()-1] << "\n\n";
+       }
+
+       if (Y.size() > 0)
+       {
+            out << "Y Values: \n";
+
+            for (int var = 0; var < Y.size()-1; ++var)
+            {
+                out << Y[var] << ", ";
+                if (var % 10 == 0 && var != 0)
+                    out << "\n";
+            }
+            out << Y[Y.size()-1] << "\n\n";
         }
-
-       out << X[X.size()-1] << "\n\n";
-       out << "Y Values: \n";
-
-       for (int var = 0; var < Y.size()-1; ++var) {
-           out << Y[var] << ", ";
-           if (var % 10 == 0 && var != 0)
-               out << "\n";
-        }
-       out << Y[Y.size()-1] << "\n\n";
 
        out << "Comment: \n";
        out << comment;
